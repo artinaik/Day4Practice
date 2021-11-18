@@ -10,8 +10,12 @@ namespace SnakeAndLadder
     {
         static void Main(string[] args)
         {
-            int playerLocation = 0;
-
+            int playerPosition = 0;
+            Random randam = new Random();
+            int answer = randam.Next(1, 7);
+            playerPosition = playerPosition + answer;
+            Console.WriteLine("Player position is " + playerPosition);
+            Console.ReadKey();
         }
     }
 }
