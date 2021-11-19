@@ -38,8 +38,9 @@ namespace SnakeAndLadder
                         break;
                 }
             }
-            Console.WriteLine("Player won the game and position is "+nextPosition);//final win position is 100 
-
+            //Console.WriteLine("Player won the game and position is "+nextPosition);//final win position is 100 
+            if (nextPosition == playerWinPosition)
+                Console.WriteLine("Player has got winning position  " + nextPosition);
         }
 
     }
