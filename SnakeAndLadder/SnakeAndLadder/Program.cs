@@ -8,13 +8,10 @@ namespace SnakeAndLadder
 {
     class Program
     {
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
-            int playerPosition = 0;
-            Random randam = new Random();
-            int answer = randam.Next(1, 7);
-            playerPosition = playerPosition + answer;
-            Console.WriteLine("Player position is " + playerPosition);
+            SnakeAndLadder snakeAndLadderobj = new SnakeAndLadder();
+            snakeAndLadderobj.ChecksForOption();
             Console.ReadKey();
         }
     }
