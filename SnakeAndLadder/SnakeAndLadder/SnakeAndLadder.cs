@@ -5,36 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SnakeAndLadder
-{   
+{  
     class SnakeAndLadder
     {
-        public const int playerStartPosition = 0;
+        public const int playerStartPosition = 0,playerWinPosition=100;
         public static int nextPosition = 0;
         public const int noPlay = 1, ladder = 2, snake = 3;
-        public void CheckCondition()
+        public void ChecksForOption()
         {
-            Random randam = new Random();
-            int answer = randam.Next(1, 7);
-            Random random1 = new Random();
-            int choice = random1.Next(1, 4);
-            switch (choice)
+            Random randam = new Random();//for die
+            Random random1 = new Random();//for switch case
+            while(nextPosition!=playerWinPosition)
             {
-                case noPlay:
-                    nextPosition = playerStartPosition;
-                    break;
-                case ladder:
-                    nextPosition = playerStartPosition + answer;
-                    break;
-                case snake:
-                    int lastPosition = playerStartPosition - answer;
-                    if (lastPosition > 0)
-                        nextPosition = lastPosition;
-                    else
-                        nextPosition = 0;
-                    break;
+                int answer = randam.Next(1, 7);//random variable for die
+                int choice = random1.Next(1, 4);//random variable for choice for player option
+
+                switch (choice)
+                {
+                    case noPlay:
+                        nextPosition = playerStartPosition + nextPosition;//no play but nextposition is calculated
+                        break;
+                    case ladder:
+                        nextPosition = nextPosition + answer;
+                        nextPosition++;//next position increament by random die
+                        break;
+                    case snake:
+                        int lastPosition = nextPosition - answer;//decramented by number of die
+                        if (lastPosition > 0)// checking if position greater than 0
+                            nextPosition = lastPosition;//assigned decreamented value to next position
+                        else
+                            nextPosition = 0;
+                        break;
+                }
             }
-            Console.WriteLine("Current Position of player is " + nextPosition);
+            Console.WriteLine("Player won the game and position is "+nextPosition);//final win position is 100 
+
         }
+
     }
 
 }
